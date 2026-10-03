@@ -307,7 +307,7 @@ Content-Type: application/json
 }
 ~~~
 
-The client MUST associate this returned access token with the key used to make the requst.
+The client MUST associate this returned access token with the key used to make the request.
 
 The confirmation carries the key the token is bound to, allowing an RS to validate a presented signature without reference to the client's registration. The member carrying the key depends on the key binding method and indicates which algorithm registry applies:
 
@@ -479,7 +479,7 @@ The RS then calculates the signature validation against the signature base using
 - Leakage of a private key alongside a token allows for re-presentation of that token.
 - Insufficient coverage of a message allows a signature to be attached to a different message.
 - Failure to check derived attributes allows a signature to be replayed.
-- Signatures could be replayed outside of their vailidty window if not checked.
+- Signatures could be replayed outside of their validity window if not checked.
 - An access token cannot be bound to a shared secret. Every party that validates a presented signature needs the key that produced it, and a verifier holding symmetric key material can produce a valid signature of its own as per {{Section 7.3.3 of HTTPSIG}}. Binding a token to a shared secret would allow every RS that accepts it to produce requests indistinguishable from the client's. The client's registered `jwks` and `jwks_uri` values carry public keys only ({{DYNREG}}).
 
 # Privacy Considerations {#Privacy}
